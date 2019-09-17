@@ -7,7 +7,7 @@ export default class App extends Component {
 
   state={
     placeName:'',
-    places:[]
+    places:['test','test2']
   }
 
   placeNameInputChangeHandler=(val)=>{
