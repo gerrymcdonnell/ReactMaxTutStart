@@ -1,30 +1,33 @@
-import React from 'react';
+import React ,{Component}from 'react';
 import { StyleSheet, Text, View,TextInput } from 'react-native';
 
-export default function App() {
+export default class App extends Component {
 
   state={
     placeName:''
   }
 
-  placeNameInputChangedHandler=(event)=>{
-    alert(event);
-  }
+  placeNameInputChangeHandler=val=>{
+    this.setState({
+      placeName:val
+    });
+  };
 
+  
+  render(){
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>Vid</Text>
       
       <TextInput 
-      value={this.state.placeName}
-        onChangeText={this.placeNameInputChangedHandler}
-        style={
-        {width:300, borderColor:"black",borderWidth:1}
-        }
+        value={this.state.placeName}
+        onChangeText={this.placeNameInputChangeHandler}
+        style={{width:300, borderColor:"black",borderWidth:1}}
       />
-
     </View>
   );
+  }
+
 }
 
 const styles = StyleSheet.create({
