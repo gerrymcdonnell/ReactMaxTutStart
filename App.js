@@ -4,17 +4,38 @@ import { StyleSheet, Text, View,TextInput,Button } from 'react-native';
 export default class App extends Component {
 
   state={
-    placeName:''
+    placeName:'',
+    places:[]
   }
 
-  placeNameInputChangeHandler=val=>{
+  placeNameInputChangeHandler=(val)=>{
     this.setState({
       placeName:val
     });
   };
 
+  //submit button handler
+  placeSubmitHandler=()=>{
+    
+    //if the entered string is not empty
+    if(this.state.placeName.trim()===""){
+      return;
+    }
+
+    this.setState(prevState=>{
+      return {
+        places:prevState.places.concat(prevState.placeName)
+      }
+    })
+  }
+
   
   render(){
+
+    const placesOutput=this.state.places.map((place,i)=>
+      <Text key={i}>{place}</Text>
+    )
+
   return (
     <View style={styles.container}>
       <Text>Vid 24</Text>
@@ -26,8 +47,11 @@ export default class App extends Component {
         placeholder="This is a placeholder!"
         style={styles.placeInput}
       />
-      <Button title="add" style={styles.placeButton}/>
+      <Button title="add" onPress={this.placeSubmitHandler} style={styles.placeButton}/>
       </View>
+
+      <View>{placesOutput}</View>
+
     </View>
   );
   }
