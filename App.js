@@ -38,7 +38,7 @@ export default class App extends Component {
       
       // <Text key={i}>{place}</Text>
 
-      <ListItem key={i} placeName={place}/>
+      <ListItem key={i} placeName={place} onItemPressed={()=>console.log('item pressed')}/>
     )
 
   return (
