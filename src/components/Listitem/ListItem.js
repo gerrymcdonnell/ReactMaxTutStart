@@ -1,24 +1,21 @@
-//functional component
+import React from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-import React from 'react';
-import {View,Text,StyleSheet,TouchableHighlight} from 'react-native';
-
-const listItem=(props)=>(
-    <TouchableHighlight onPress={props.onItemPressed}>
+const listItem = props => (
+  <TouchableOpacity onPress={props.onItemPressed}>
     <View style={styles.listItem}>
-        <Text>
-            {props.placeName}
-        </Text>
+      <Text>{props.placeName}</Text>
     </View>
-    </TouchableHighlight>
+  </TouchableOpacity>
 );
 
-const styles=StyleSheet.create({
-    listItem:{
-        width:'100%',
-        padding:10,
-        backgroundColor:'#eee',
-        marginBottom:5
-    }
-})
+const styles = StyleSheet.create({
+  listItem: {
+    width: "100%",
+    marginBottom: 5,
+    padding: 10,
+    backgroundColor: "#eee"
+  }
+});
+
 export default listItem;
